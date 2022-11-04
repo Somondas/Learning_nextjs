@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 // tip: Use meta name="keywords" content="keywords for for search engine to display your site using keywords"
 export default function Home() {
@@ -14,10 +15,11 @@ export default function Home() {
       <main className={styles.main}>
        <nav className={styles.navbar}>
         <ul>
-          <li>Home</li>
-          <li>Blogs</li>
-          <li>About</li>
-          <li>Contact</li>
+          <Link href="/"><li>Home</li></Link>
+          
+          <Link href="/blog"><li>Blogs</li></Link>
+          <Link href="/about"><li>About</li></Link>
+          <Link href="/"><li>Contact</li></Link>
         </ul>
        </nav>
         <h1 className={styles.title}>
