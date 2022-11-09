@@ -13,14 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-       <nav className={styles.navbar}>
-        <ul>
-          <Link href="/"><li>Home</li></Link>
-          <Link href="/blog"><li>Blogs</li></Link>
-          <Link href="/about"><li>About</li></Link>
-          <Link href="/"><li>Contact</li></Link>
-        </ul>
-       </nav>
+
         <h1 className={styles.title}>
           Hunting Coder
         </h1>
@@ -51,7 +44,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -62,7 +55,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }

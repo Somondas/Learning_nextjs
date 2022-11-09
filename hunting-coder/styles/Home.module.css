@@ -107,9 +107,14 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+.navbar{
+  width: 100%;
+}
 .navbar ul{
+  padding-top: 2rem;
   display: flex;
-  margin-bottom: 2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 .navbar ul li{
   margin: 0 24px;
