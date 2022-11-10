@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/Blog.module.css'
+// ||||||||||||                                                                                                     
+
+// Todo: Step 1: Collect all the files from blogdata directory
+// Todo: Itrate through them and display
 const Blog = () => {
   return (
     <main className={styles.main}>
