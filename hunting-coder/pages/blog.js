@@ -13,7 +13,7 @@ const Blog = () => {
       return a.json();})
       .then((parsed) => {
       setBlogs(parsed)
-    }).catch((e) => console.log(e))
+    }).catch((e) => console.log(e)) 
   }, [])
   return (
     <main className={styles.main}>
