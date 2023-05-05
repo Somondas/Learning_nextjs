@@ -13,7 +13,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <img src={"https://images.pexels.com/photos/3735633/pexels-photo-3735633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} className='w-full h-[700px]' />
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
@@ -60,10 +59,8 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <button class="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Button</button>
         </div>
       </section>
-      <Footer />
     </>
   )
 }
