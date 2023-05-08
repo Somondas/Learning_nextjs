@@ -1,8 +1,26 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react';
 
 const Post = () => {
     const router = useRouter()
     const { slug } = router.query
+    const [pin, setpin] = useState();
+    const [service, setService] = useState()
+
+
+    const checkPincode = async () => {
+        const pins = await fetch("http://localhost:3000/api/pincode");
+        const pinJson = await pins.json()
+        // console.log(pinJson);
+        if (pinJson.includes(parseInt(pin))) {
+            setService(true)
+        } else {
+            setService(false)
+        }
+    }
+    const onChangePin = (e) => {
+        setpin(e.target.value)
+    }
 
     return <>
         <section className="text-gray-600 body-font overflow-hidden">
@@ -76,7 +94,8 @@ const Post = () => {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">$58.00</span>
-                            <button className="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Add To Cart</button>
+                            <button className="flex ml-8 text-white bg-pink-500 border-0 px-3 py-1 md:py-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">Buy now</button>
+                            <button className="flex ml-4 text-white bg-pink-500 border-0 px-3 py-1 md:py-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">Add To Cart</button>
                             <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                                 <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
                                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
@@ -84,8 +103,17 @@ const Post = () => {
                             </button>
                         </div>
                         <div className="pin mt-6 flex text-sm space-x-2">
-                            <input type="text" className='px-2 border-2 rounded-md border-gray-300' />
-                            <button className='flex ml-auto text-white bg-pink-500 border-0 py-1 px-4 focus:outline-none hover:bg-pink-600 rounded'>Check</button>
+                            <input type="text" placeholder='Enter Your Pincode' onChange={onChangePin} className='px-2 border-2 rounded-md border-gray-300' />
+                            <button onClick={checkPincode} className='flex ml-auto text-white bg-pink-500 border-0 py-1 px-4 focus:outline-none hover:bg-pink-600 rounded'>Check</button>
+                        </div>
+                        {(!service && service != null) && <div className="text-red-500 mt-2">
+                            Currently, unavailable for {pin}
+                        </div>}
+                        {(service && service != null) && <div className="text-green-500 mt-2">
+                            Yay! shipping is available
+                        </div>}
+                        <div className="text-red-500">
+
                         </div>
                     </div>
                 </div>
