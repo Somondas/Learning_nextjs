@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { BsCart2 } from 'react-icons/bs';
 import { AiFillCloseCircle, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 
-function Navbar() {
+function Navbar({ cart, addToCart, removeFromCart, clearCart, subTotal }) {
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full")
@@ -38,7 +38,20 @@ function Navbar() {
           <AiFillCloseCircle />
         </span>
         <ol>
-          <li>
+          {Object.keys(cart).length === 0 && <div className='my-4 font-semibold'>Cart is empty!</div>}
+          {Object.keys(cart).map((key) => {
+            return <li>
+              <div className="item flex my-5">
+                <div className=" w-2/3 font-semibold">T-shirt wear the code</div>
+                <div className=" w-1/3 flex font-semibold items-center justify-center text-lg">
+                  <AiFillPlusCircle className='text-pink-400 cursor-pointer' />
+                  <span className="mx-2">1</span>
+                  <AiFillMinusCircle className='text-pink-400 cursor-pointer' />
+                </div>
+              </div>
+            </li>
+          })}
+          {/* <li>
             <div className="item flex my-5">
               <div className=" w-2/3 font-semibold">T-shirt wear the code</div>
               <div className=" w-1/3 flex font-semibold items-center justify-center text-lg">
@@ -57,17 +70,7 @@ function Navbar() {
                 <AiFillMinusCircle className='text-pink-400 cursor-pointer' />
               </div>
             </div>
-          </li>
-          <li>
-            <div className="item flex my-5">
-              <div className=" w-2/3 font-semibold">T-shirt wear the code</div>
-              <div className=" w-1/3 flex font-semibold items-center justify-center text-lg">
-                <AiFillPlusCircle className='text-pink-400 cursor-pointer' />
-                <span className="mx-2">1</span>
-                <AiFillMinusCircle className='text-pink-400 cursor-pointer' />
-              </div>
-            </div>
-          </li>
+          </li> */}
         </ol>
         <div className="flex">
           <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-4 focus:outline-none hover:bg-pink-600 rounded text-lg">Checkout</button>
