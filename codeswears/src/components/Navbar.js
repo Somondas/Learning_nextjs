@@ -16,7 +16,7 @@ function Navbar({ cart, addToCart, removeFromCart, clearCart, subTotal }) {
   }
   const ref = useRef()
   return (
-    <div className='flex flex-col md:flex-row md:justify-start items-center justify-center py-4 sticky top-0 bg-white shadow-md z-10' >
+    <div className={`flex flex-col md:flex-row md:justify-start items-center justify-center py-4 sticky top-0 bg-white shadow-md z-10`} >
       <div className="logo">
         <Image width={200} height={40} className='mx-5' src="/logo-long.png" alt="" />
       </div>
@@ -32,7 +32,8 @@ function Navbar({ cart, addToCart, removeFromCart, clearCart, subTotal }) {
         <BsCart2 className='text-xl md:text-3xl border-pink-500 border-[3px] rounded-full px-1' />
       </div>
 
-      <div ref={ref} className="sidebar absolute w-72 px-8 py-10 top-0 h-[100vh] right-0 bg-pink-100 shadow-md p-10 transform transition-transform translate-x-full">
+      <div ref={ref} className={`sidebar absolute w-72 px-8 py-10 top-0 h-[100vh] right-0 bg-pink-100 shadow-md p-10 transform transition-transform
+       ${Object.keys(cart).length !== 0 ? "translate-x-0" : "translate-x-full"}`}>
         <h2 className="font-bold text-xl">Shopping Cart</h2>
         <span onClick={toggleCart} className="absolute top-5 right-2 cursor-pointer text-2xl text-pink-500">
           <AiFillCloseCircle />
