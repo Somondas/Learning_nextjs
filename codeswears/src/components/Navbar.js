@@ -60,11 +60,11 @@ function Navbar({ cart, addToCart, removeFromCart, clearCart, subTotal }) {
         </ol>
         <div className="flex">
           <Link href={"/checkout"}>
-            <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-4 focus:outline-none hover:bg-pink-600 rounded text-lg">Checkout</button>
+            <button className="flex mx-auto text-white bg-pink-500 border-0 py-2 px-4 focus:outline-none hover:bg-pink-600 rounded text-lg">Checkout</button>
           </Link>
           <button
             onClick={() => clearCart()}
-            class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-4 focus:outline-none hover:bg-pink-600 rounded text-lg">Clear Cart</button>
+            className="flex mx-auto text-white bg-pink-500 border-0 py-2 px-4 focus:outline-none hover:bg-pink-600 rounded text-lg">Clear Cart</button>
         </div>
       </div>
     </div>
